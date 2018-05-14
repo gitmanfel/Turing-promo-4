@@ -36,7 +36,7 @@ Fichier du cours [Application](./TodoList/App)
 
 ### Exercice
 
-1. [Brief d'exercice](/.ChatBox/ChatBox.md)
+1. [Brief d'exercice](/ChatBox/ChatBox.md)
 
 - Fichier de début de cours [ChatBox](./ChatBox/StartFileChatBox) <br/>
 - Fichier de fin de cours [ChatBox](./ChatBox/EndFileChatBox)
