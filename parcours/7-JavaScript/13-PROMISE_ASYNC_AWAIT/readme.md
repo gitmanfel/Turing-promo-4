@@ -1,17 +1,17 @@
 # Promise, async & away 
 
-## le js est Asynchrone
+## Le js est Asynchrone
 
 Une des particularités du Javascript est d'être asynchrone. C'est un concept qui peut être déroutant au début quand on vient du PHP par exemple. 
 
-### Asynchrone, c'est quoi.
+### Asynchrone, c'est quoi ?
 
-Un code asynchrone c'est code qui est non bloquant. C'est-à-dire que les instructions vont se dérouler dans l'ordre dans lequel vous l'avez écrit, mais si une opération met du temps à s'exécuter, les opérations suivantes ses déroulont malgré tout. Avec un code synchrone, ça ne sera pas le cas. Le code se bloquera tant que l'opération n'a pas été éxécutée.
+Un code asynchrone c'est un code qui est non bloquant. C'est-à-dire que les instructions vont se dérouler dans l'ordre dans lequel vous l'avez écrit, mais si une opération met du temps à s'exécuter, les opérations suivantes se déroulont malgré tout. Avec un code synchrone, ça ne sera pas le cas. Le code se bloquera tant que l'opération n'a pas été éxécutée.
 Imaginons que nous devions créer trois opérations.
 
 **En synchrone**
 
-Les opérations seront donc déroulées une à une. Elles n'attentes que l'opération précédente soit finie. Ce qui peut être long dans certains cas.
+Les opérations seront donc déroulées une à une. Elles n'attendent que l'opération précédente soit finie. Ce qui peut être long dans certains cas.
 
 ```
 Task 1 ... >
@@ -29,7 +29,7 @@ Task 1 ... >
 ---------Task 3 ... > 
 ```
 
-Son exécution sera plus rapide. Mais du coup, l'asynchrone peuvent amener quelques erreurs si on se met à penser comme en PHP* (ou tout autre langage de programmation synchrone) .
+Son exécution sera plus rapide. Mais du coup, l'asynchrone peut amener quelques erreurs si on se met à penser comme en PHP [1] (ou tout autre langage de programmation synchrone).
 
 **EXEMPLE 1** 
 
@@ -52,7 +52,7 @@ Comme on peut le voir, la 3e console log est exécuté avant le second. Un codeu
 
 **EXEMPLE 2** 
 
-Code synchrone en js grâce à ``false`` qui est dans la fonction ``req.open``
+Code synchrone en JS grâce à ``false`` qui est dans la fonction ``req.open``
 
 ````javascript
 const req = new XMLHttpRequest();
@@ -60,13 +60,13 @@ req.open('GET', 'https://jsonplaceholder.typicode.com/users', false); // False e
 req.send(null);
 // Cette condition ne serait remplie que quand le fichier est chargé
 if (req.status === 200) {
-    console.log("Réponse reçue: %s", req.responseText);
+    console.log("Réponse reçue : %s", req.responseText);
 } else {
-    console.log("Status de la réponse: %d (%s)", req.status, req.statusText);
+    console.log("Status de la réponse : %d (%s)", req.status, req.statusText);
 }
 ````
 
-L'inconvénient de cette méthode, c'est qu'elle ralentie le temps d'éxecution du script. (Comme vu plus haut). On peut mettre la valeur de ```req.open``` à ``true ``, ce qui le code rendra asynchrone
+L'inconvénient de cette méthode, c'est qu'elle ralentit le temps d'éxecution du script. (Comme vu plus haut). On peut mettre la valeur de ```req.open``` à ``true ``, ce qui le code rendra asynchrone.
 
 
 ````javascript
@@ -75,9 +75,9 @@ req.open('GET', 'https://jsonplaceholder.typicode.com/users', true); // true exe
 req.send(null);
 // Cette condition ne serait pas  remplie  lors de son execution
 if (req.status === 200) {
-    console.log("Réponse reçue: %s", req.responseText);
+    console.log("Réponse reçue : %s", req.responseText);
 } else {
-    console.log("Status de la réponse: %d (%s)", req.status, req.statusText);
+    console.log("Status de la réponse : %d (%s)", req.status, req.statusText);
 }
 ````
 
@@ -93,9 +93,9 @@ if (req.status === 200) {
 
 Au moment de son exécution, la condition n'est pas remplie...
 
-Avec une utilisation du code asynchrone, nous devons utiliser un événement qui permettra de déclencher une autre fonction (callback) qui sera appellée quand l'opération est finie.
+Avec une utilisation du code asynchrone, nous devons utiliser un événement qui permettra de déclencher une autre fonction (callback) qui sera appelée quand l'opération est finie.
 
-Avec l'exemple précédent, on peut gérer l'asynchrone grâce à l'événement``onreadystatechange ``
+Avec l'exemple précédent, on peut gérer l'asynchrone grâce à l'événement ``onreadystatechange``
 
 ````javascript
 const req = new XMLHttpRequest();
@@ -119,15 +119,15 @@ req.send(null);
 
 C'est un peu long plus que de l'écrire en synchrone, mais les gains de performance sont conséquents et il n'y a pas lieu d'hésiter concernant son utilisation.
 
-Bon le problème avec cette méthode, c'est qu'il faut parfois imbriquer plusieurs ``callbacks`` ou plusieurs conditions. Et ce n'est pas joli joli niveau lecture. Et c'est là qu'interviennent les promesses. Oui c'est vrai finalement c'est le titre de cette page. 
+Le problème avec cette méthode, c'est qu'il faut parfois imbriquer plusieurs ``callbacks`` ou plusieurs conditions. Et ce n'est pas joli joli niveau lecture. Et c'est là qu'interviennent les promesses. Oui c'est vrai finalement c'est le titre de cette page. 
 
-*(*) Notez que depuis peu, une librairie Php permet de faire de l'asynchrone en Php (voir [ReactPHP](https:/reactphp.Org/))*
+[1] * Notez que depuis peu, une librairie permet de faire de l'asynchrone en PHP (voir [ReactPHP](https:/reactphp.Org/))*
 
 
 ## Les promesses (enfin)
-Je vous l'avais promis, voici les promesses. (Oui je sais ...)
+Je vous l'avais promis, voici les promesses. (Oui je sais...)
 
-Les promesses (promise dans la langue Shakespeare) en js sont des objets contenant plusieurs méthodes permettant de gérer l'asynchrone. Les promesses sont sorties avec le lots de nouveautés de l'es2015. 
+Les promesses (promise dans la langue de Shakespeare) en JS sont des objets contenant plusieurs méthodes permettant de gérer l'asynchrone. Les promesses sont sorties avec le lot de nouveautés de l'ES2015. 
 
 Les promesses permettent donc d'éviter de faire 50 imbrications de callback. Elles permettent aussi d'écrire du code asynchrone, mais qui s'écrit comme du code synchrone. 
 
@@ -152,7 +152,7 @@ let loadFile = (url) => {
 }
 
 ````
-Ensuite ... on utilise la méthode ``then`` si l'opération réussit. Dans cette méthode on met un callback qui s'éxécutera uniquement si la promesse est résolue. La méthode ```catch``` permet quant à elle de capter si une des opérations ne s'est pas déroulée correctement.
+Ensuite... on utilise la méthode ``then`` si l'opération réussit. Dans cette méthode, on met un callback qui s'exécutera uniquement si la promesse est résolue. La méthode ```catch``` permet quant à elle de capter si une des opérations ne s'est pas déroulée correctement.
 
 ````javascript
 
@@ -170,7 +170,7 @@ loadFile('https://jsonplaceholder.typicode.com/users')
 
 **Les promesses level up**
 
-async et await sont des déclarartions de fonction, elles définissent l'usage asynchrone de la fonction. Elles sont sorties avec l'es2017. Cette écriture permet une meilleure organisation du code car elle n'oblige plus d'utiliser la méthode ``then``. Ces déclarartions travaillent avec des promesses. 
+async et await sont des déclarations de fonction, elles définissent l'usage asynchrone de la fonction. Elles sont sorties avec l'ES2017. Cette écriture permet une meilleure organisation du code car elle n'oblige plus d'utiliser la méthode ``then``. Ces déclarations travaillent avec des promesses. 
 
 ````javascript
 let getFile = (url) => {
@@ -198,6 +198,3 @@ async function showFile() {
 showFile();
 ````
 Le mot clé ``async`` est utilisé pour suspendre et reprendre une fonction. Le mot clé ``await`` définit la variable qui attend un résultat. La variable ``result`` est donc créée uniquement quand ``getFile()`` a fini son opération. 
-
-
-
