@@ -15,6 +15,7 @@ Clone-le sur ton ordi et `git pull` régulièrement afin de rapatrier les mises 
 - Si tu dois fixer un rendez-vous quelconque, fixe-le le **mardi matin** (sois de retour pour 13h25).
 - Si vraiment tu ne peux faire autrement, préviens nous **au moins un jour à l'avance** en envoyant un email à ludovic@becode.org  ET bertrand@becode.org ET eddy@becode.org Nous l'ajouterons à l'agenda, de sorte que tout le monde sache qu'il ne peut compter sur toi à ce moment-là.
 - Malade ? Montre un certificat médical valide et préviens-nous par email aussitôt que possible.
+- Si le taux d'absence (justifiée ou non) du junior dépasse 20%, BeCode pourra unilatéralement décider de mettre fin à son contrat.
 
 ## Contenus pédagogiques
 
