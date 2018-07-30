@@ -1,6 +1,8 @@
-# Workshop Laravel
+# Laravel
 
 ![Logo Laravel](laravel-logo-big.png)
+
+Par [Bryan Mootoosamy](https://github.com/BryanMootoosamy), apprenant de la promo 1 à Carleroi.
 
 ## Introduction
 ### Qu'est-ce que Laravel ?
