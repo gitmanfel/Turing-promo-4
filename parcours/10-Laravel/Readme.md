@@ -115,8 +115,11 @@ Pour ce qui est de ce qu'on vient d'écrire, c'est l'équivalent en html à :
 Il faut maintenant ajouter des inputs à notre formulaire. Disons un input texte et un bouton.
 Entre les lignes de ce qu'on à écrit auparavant, on va donc ajouter : 
 ```php
+    //Version 5.4 de laravel 
     {{Form::text('name', null)}}
     {{Form::submit('send!', null)}}
+    
+    //version 5.6 de laravel
 ```
 
 (le "null" spécifie que la valeur de base n'existe pas, ce sera différent si on fait un formulaire qui édite par exemple un post d'un blog préalablement créé)
