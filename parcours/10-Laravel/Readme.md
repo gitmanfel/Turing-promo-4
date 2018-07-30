@@ -120,6 +120,9 @@ Entre les lignes de ce qu'on à écrit auparavant, on va donc ajouter :
     {{Form::submit('send!', null)}}
     
     //version 5.6 de laravel
+    {!! Form::text('name', null) !!}
+    {!! Form::submit('send!', null) !!}
+    
 ```
 
 (le "null" spécifie que la valeur de base n'existe pas, ce sera différent si on fait un formulaire qui édite par exemple un post d'un blog préalablement créé)
